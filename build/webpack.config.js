@@ -20,7 +20,7 @@ var commonPath = {
 module.exports = {
     devtool: SOURCE_MAP ? 'eval-source-map' : false,
     entry: {
-        index: ['webpack-hot-middleware/client?reload=true', path.join(src,'app.jsx')]
+        index: ['webpack-hot-middleware/client?reload=true', path.join(src, 'app.jsx')]
     },
     output: {
         filename: '[name].js',
@@ -48,7 +48,7 @@ module.exports = {
         loaders: [{
             test: /\.js[x]?$/,
             exclude: /node_modules/,
-            loader: 'babel-loader?presets[]=es2015&presets[]=react'
+            loader: 'babel-loader?presets[]=es2015&presets[]=react&presets[]=stage-0'
         }]
     },
     plugins: [

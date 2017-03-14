@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'
-// import store,{history} from 'STORE' 
+import store from 'STORE' 
 // import routes from 'ROUTE'
 import routes from 'ROUTE'
 
@@ -50,6 +50,8 @@ const MOUNT_NODE=document.getElementById('app')
 // )
 
 ReactDOM.render(
-    <Router history={browserHistory} children={routes}></Router>,
+    <Provider store={store}>
+        <Router history={browserHistory} children={routes}></Router>
+    </Provider>,
     MOUNT_NODE
 )

@@ -3,5 +3,8 @@ export default {
     component: require('COMPONENT/App').default,
     indexRoute:{
         component:require('COMPONENT/Welcome').default
-    }
+    },
+    childRoutes:[
+        require('./msg').default
+    ]
 }
