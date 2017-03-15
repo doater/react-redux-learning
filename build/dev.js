@@ -3,10 +3,23 @@ var express = require('express'),
     config = require('./webpack.config'),
     app = express();
 
+var path=require('path');
+
 var compiler = webpack(config);
 
+// 项目根目录
+var rootPath = path.resolve(__dirname, '..');
+//开发源码目录
+var src = path.join(rootPath, 'src');
+var commonPath = {
+    rootPath: rootPath,
+    dist: path.join(rootPath, 'dist'),
+    indexHTML: path.join(src, 'index.html'),
+    staticDir: path.join(rootPath, 'static')
+};
+
 // for highly stable resources
-// app.use('/static', express.static(config.commonPath.staticDir));
+app.use('/static', express.static(commonPath.staticDir));
 
 // app.use(favicon(path.join(__dirname, '../favicon.ico')));
 
